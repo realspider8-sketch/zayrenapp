@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
 from sqlalchemy.ext.asyncio import AsyncSession
 from uuid import UUID
 
-from backend.database import get_db
-from backend.models import User
-from backend.schemas import UserCreate, UserProfileResponse, ProfileUpdate, PictureUploadResponse, PasswordResetRequest
-from backend.services import UserService
+from database import get_db
+from models import User
+from schemas import UserCreate, UserProfileResponse, ProfileUpdate, PictureUploadResponse, PasswordResetRequest
+from services import UserService
 
 router = APIRouter()
 
@@ -16,7 +16,7 @@ async def test_endpoint():
     logging.info("[Test] Test endpoint called")
     return {"message": "Router is working!", "status": "ok"}
 
-from backend.schemas import UserLogin
+from schemas import UserLogin
 
 @router.post("/login")
 async def login(login_data: UserLogin, db: AsyncSession = Depends(get_db)):

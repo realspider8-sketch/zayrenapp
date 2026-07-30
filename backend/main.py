@@ -58,7 +58,7 @@ async def ensure_super_admin_account():
             return
 
         import uuid
-        from backend.models import User
+        from models import User
         # For a completely missing user, we insert one directly to bypass schemas missing fields
         new_user = User(
             id=uuid.uuid4(),

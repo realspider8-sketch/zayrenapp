@@ -5,10 +5,10 @@ from sqlalchemy.orm import selectinload
 from typing import List
 from uuid import UUID
 
-from backend.database import get_db
-from backend.models import User, Post, PostMedia, PostLike, PostComment, PostShare
-from backend.schemas import PostSchema, PostCreate, PostCommentSchema, CommentCreate
-from backend.dependencies import get_current_user
+from database import get_db
+from models import User, Post, PostMedia, PostLike, PostComment, PostShare
+from schemas import PostSchema, PostCreate, PostCommentSchema, CommentCreate
+from dependencies import get_current_user
 
 router = APIRouter()
 

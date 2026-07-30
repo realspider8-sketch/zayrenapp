@@ -2,8 +2,8 @@ import os
 import uuid
 import shutil
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
-from backend.models import User
-from backend.dependencies import get_current_user
+from models import User
+from dependencies import get_current_user
 
 router = APIRouter()
 

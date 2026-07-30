@@ -4,8 +4,8 @@ from sqlalchemy import select, or_
 from typing import List, Optional
 import random
 
-from backend.database import get_db
-from backend.models import User
+from database import get_db
+from models import User
 
 router = APIRouter()
 

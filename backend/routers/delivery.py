@@ -3,9 +3,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from uuid import UUID
 
-from backend.database import get_db
-from backend.models import DeliveryOffice, DeliveryRequest, Order, PurchaseReceipt, DeliveryPartner, Shop, Product, OrderItem
-from backend.schemas import DeliveryOfficeSchema, DeliveryRequestSchema, DeliveryRequestCreate, DeliveryFeePropose
+from database import get_db
+from models import DeliveryOffice, DeliveryRequest, Order, PurchaseReceipt, DeliveryPartner, Shop, Product, OrderItem
+from schemas import DeliveryOfficeSchema, DeliveryRequestSchema, DeliveryRequestCreate, DeliveryFeePropose
 from typing import Optional
 
 router = APIRouter()
