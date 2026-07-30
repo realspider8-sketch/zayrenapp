@@ -7,11 +7,11 @@ from uuid import uuid4
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from fastapi.testclient import TestClient
-from backend.main import app
-from backend.database import init_db, engine, Base, SQLITE_DB_URL, AsyncSessionLocal
-from backend.models import User, Post, PostLike, PostComment, PostShare
-from backend.services import UserService
-from backend.schemas import UserCreate
+from main import app
+from database import init_db, engine, Base, SQLITE_DB_URL, AsyncSessionLocal
+from models import User, Post, PostLike, PostComment, PostShare
+from services import UserService
+from schemas import UserCreate
 
 client = TestClient(app)
 

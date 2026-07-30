@@ -8,8 +8,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 from typing import List
 
-from backend.database import get_db
-from backend.models import (
+from database import get_db
+from models import (
     User, Shop, Product, DeliveryOffice, Order, DeliveryRequest,
     Post, PostLike, PostComment, Follow
 )

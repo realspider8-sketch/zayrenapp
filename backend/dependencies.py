@@ -4,9 +4,9 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.ext.asyncio import AsyncSession
 from supabase import create_client, Client
 
-from backend.database import get_db
-from backend.models import User
-from backend.services import UserService
+from database import get_db
+from models import User
+from services import UserService
 
 # Supabase Client Initialization
 SUPABASE_URL = os.getenv("EXPO_PUBLIC_SUPABASE_URL", "")
