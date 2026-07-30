@@ -3,7 +3,6 @@ services:
     name: zayren-backend
     env: docker
     branch: main
-    dockerContext: backend
     dockerfilePath: backend/Dockerfile
     plan: free
     envVars:
