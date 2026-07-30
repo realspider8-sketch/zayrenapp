@@ -3,8 +3,7 @@ services:
     name: zayren-backend
     env: docker
     branch: main
-    dockerContext: backend
-    dockerfilePath: Dockerfile
+    dockerfilePath: backend/Dockerfile
     plan: free
     envVars:
       - key: EXPO_PUBLIC_SUPABASE_URL
