@@ -90,7 +90,7 @@ async def update_user_profile(user_id: UUID, profile_data: ProfileUpdate, db: As
 import os
 from supabase import create_client, Client
 
-SUPABASE_URL = os.getenv("EXPO_PUBLIC_SUPABASE_URL", "")
+SUPABASE_URL = os.getenv("SUPABASE_URL") or os.getenv("EXPO_PUBLIC_SUPABASE_URL", "")
 # Prefer a server-side service role key for elevated operations; fall back to the anon key if provided
 SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY") or os.getenv("EXPO_PUBLIC_SUPABASE_ANON_KEY", "")
 

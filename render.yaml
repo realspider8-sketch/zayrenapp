@@ -6,6 +6,8 @@ services:
     dockerfilePath: backend/Dockerfile
     plan: free
     envVars:
+      - key: SUPABASE_URL
+        value: "https://vskmpsecfgsiiyfkcyzg.supabase.co"
       - key: EXPO_PUBLIC_SUPABASE_URL
         value: "https://vskmpsecfgsiiyfkcyzg.supabase.co"
       - key: EXPO_PUBLIC_SUPABASE_ANON_KEY

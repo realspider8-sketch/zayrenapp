@@ -9,8 +9,8 @@ from models import User
 from services import UserService
 
 # Supabase Client Initialization
-SUPABASE_URL = os.getenv("EXPO_PUBLIC_SUPABASE_URL", "")
-SUPABASE_KEY = os.getenv("EXPO_PUBLIC_SUPABASE_ANON_KEY", "")
+SUPABASE_URL = os.getenv("SUPABASE_URL") or os.getenv("EXPO_PUBLIC_SUPABASE_URL", "")
+SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY") or os.getenv("EXPO_PUBLIC_SUPABASE_ANON_KEY", "")
 
 supabase_client: Client | None = None
 if SUPABASE_URL and SUPABASE_KEY:
