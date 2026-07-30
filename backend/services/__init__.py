@@ -3,13 +3,9 @@ from sqlalchemy.future import select
 from sqlalchemy import func
 from typing import Optional
 from uuid import UUID
-
-try:
-    from ..models import User, Follow, Post, Sale
-    from ..schemas import UserCreate, ProfileUpdate
-except ImportError:
-    from models import User, Follow, Post, Sale
-    from schemas import UserCreate, ProfileUpdate
+from database import get_db
+from models import User, Follow, Post, Sale
+from schemas import UserCreate, ProfileUpdate
 
 class UserService:
     @staticmethod

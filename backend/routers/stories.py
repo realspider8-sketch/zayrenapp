@@ -4,10 +4,10 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session, selectinload
 from sqlalchemy import select, and_
 
-from ..database import get_db
-from ..models import Story, StoryView
-from ..schemas import StoryCreate, StorySchema, StoryViewSchema
-from ..dependencies import get_current_user
+from database import get_db
+from models import Story, StoryView
+from schemas import StoryCreate, StorySchema, StoryViewSchema
+from dependencies import get_current_user
 
 router = APIRouter(prefix="/api/stories", tags=["stories"])
 

@@ -5,9 +5,9 @@ from sqlalchemy.orm import selectinload
 from uuid import UUID
 import uuid
 
-from backend.database import get_db
-from backend.models import Product, CartItem, Order, OrderItem, Shop, PurchaseReceipt, Payment
-from backend.schemas import (
+from database import get_db
+from models import Product, CartItem, Order, OrderItem, Shop, PurchaseReceipt, Payment
+from schemas import (
     ProductSchema, CartItemSchema, CartItemCreate, CartItemUpdate, 
     OrderSchema, PaymentSchema, PaymentVerifyRequest, PurchaseReceiptSchema
 )
