@@ -8,6 +8,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    "build": "expo export -p web",
     "lint": "expo lint",
     "seed:test-data": "cd ../backend && python seed_test_data.py"
   },
