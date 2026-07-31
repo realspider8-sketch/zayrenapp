@@ -2,15 +2,20 @@ import 'react-native-url-polyfill/auto'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createClient } from '@supabase/supabase-js'
 
+import { Platform } from 'react-native';
+
 // Use AsyncStorage adapter to tell Supabase how to persist auth tokens securely
 const AsyncStorageAdapter = {
     getItem: (key: string) => {
+        if (Platform.OS === 'web' && typeof window === 'undefined') return null;
         return AsyncStorage.getItem(key)
     },
     setItem: (key: string, value: string) => {
+        if (Platform.OS === 'web' && typeof window === 'undefined') return;
         AsyncStorage.setItem(key, value)
     },
     removeItem: (key: string) => {
+        if (Platform.OS === 'web' && typeof window === 'undefined') return;
         AsyncStorage.removeItem(key)
     },
 }
