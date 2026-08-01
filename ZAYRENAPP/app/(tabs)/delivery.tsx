@@ -21,7 +21,7 @@ const { width: W } = Dimensions.get('window');
 
 // ─── Helpers ──────────────────────────────────────────────────────────────
 
-const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http://localhost:8000';
+import { API_URL } from '@/lib/api';
 
 // Map DB statuses -> UI
 const STATUS_TO_STEP: Record<string, number> = {

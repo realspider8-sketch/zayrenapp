@@ -1,0 +1,12 @@
+The deployment is still not reachable.
+
+Please verify:
+
+1. The Render service is using the latest Git commit.
+2. The Docker image finished building successfully.
+3. The container started without crashing.
+4. The service is listening on the Render-provided `PORT` environment variable (not a hardcoded port).
+5. The Render logs contain no startup errors.
+6. The public URL is correctly assigned to the web service.
+7. If any step fails, fix it, redeploy, and confirm the service is Live.
+ 

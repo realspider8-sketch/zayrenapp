@@ -5,7 +5,7 @@ import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 
-const API_URL = 'http://192.168.1.100:8000'; // Adjust as needed for local network if testing on device, else localhost if simulator. For Expo on web, localhost is fine.
+import { API_URL } from '@/lib/api';
 // We will use a relative or configured URL. For this, we'll try to fetch.
 // Actually, let's just mock the API call in UI to keep the flow smooth for the user without breaking if the DB is empty, but we can hit localhost:8000.
 

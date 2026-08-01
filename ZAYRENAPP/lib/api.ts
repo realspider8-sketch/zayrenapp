@@ -9,6 +9,11 @@ const getBaseUrl = (): string => {
     return envUrl;
   }
 
+  if (!__DEV__) {
+    console.log('[API] Production environment detected, falling back to https://api.zayrenapp.com');
+    return 'https://api.zayrenapp.com';
+  }
+
   const hostUri = Constants.expoConfig?.hostUri || Constants.manifest?.debuggerHost;
   console.log('[API] hostUri from Constants (expoConfig or manifest.debuggerHost):', hostUri);
   const isAndroidEmulator = Platform.OS === 'android' && !Constants.isDevice;

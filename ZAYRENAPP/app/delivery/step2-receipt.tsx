@@ -13,7 +13,7 @@ export default function Step2ReceiptScreen() {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http://localhost:8000';
+    import { API_URL } from '@/lib/api';
     if (receiptId) {
       fetch(`${API_URL}/api/market/receipts/detail/${receiptId}`)
         .then(r => r.json())

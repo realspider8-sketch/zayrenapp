@@ -127,7 +127,7 @@ function ConversationRow({ item }: { item: any }) {
   );
 }
 
-const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http://localhost:8000';
+import { API_URL } from '@/lib/api';
 
 export default function ChatScreen() {
   const insets = useSafeAreaInsets();

@@ -299,7 +299,7 @@ function TrendingCreatorCard({ creator }: { creator: any }) {
 
 // ─── Main Screen ───────────────────────────────────────────────────────────
 
-const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http://localhost:8000';
+import { API_URL } from '@/lib/api';
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
