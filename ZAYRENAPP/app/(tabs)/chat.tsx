@@ -12,6 +12,7 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import { Feather, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { API_URL } from '@/lib/api';
 
 const { width: W } = Dimensions.get('window');
 
@@ -127,7 +128,6 @@ function ConversationRow({ item }: { item: any }) {
   );
 }
 
-import { API_URL } from '@/lib/api';
 
 export default function ChatScreen() {
   const insets = useSafeAreaInsets();

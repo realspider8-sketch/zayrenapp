@@ -4,6 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter, useLocalSearchParams } from 'expo-router';
+import { API_URL } from '@/lib/api';
 
 export default function Step2ReceiptScreen() {
   const insets = useSafeAreaInsets();
@@ -13,7 +14,6 @@ export default function Step2ReceiptScreen() {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    import { API_URL } from '@/lib/api';
     if (receiptId) {
       fetch(`${API_URL}/api/market/receipts/detail/${receiptId}`)
         .then(r => r.json())

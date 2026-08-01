@@ -15,7 +15,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 
 const { width: W } = Dimensions.get('window');
-import { API_URL } from '@/lib/api';
 
 // ─── Data ──────────────────────────────────────────────────────────────────
 
@@ -277,6 +276,7 @@ function TrendingShopCard({ shop }: { shop: typeof TRENDING_SHOPS[0] }) {
 // ─── Main Screen ──────────────────────────────────────────────────────────
 
 import { supabase } from '../../lib/supabase';
+import { API_URL } from '@/lib/api';
 
 export default function MarketplaceScreen() {
   const insets = useSafeAreaInsets();

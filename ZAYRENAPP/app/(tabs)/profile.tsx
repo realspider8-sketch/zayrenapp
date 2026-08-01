@@ -15,8 +15,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-import { API_URL } from '@/lib/api';
 import { Image } from 'expo-image';
+import { API_URL } from '@/lib/api';
 
 const { width: W } = Dimensions.get('window');
 

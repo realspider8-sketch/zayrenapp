@@ -5,8 +5,8 @@ import { Feather, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-
 import { API_URL } from '@/lib/api';
+
 
 export default function Step7TrackingScreen() {
   const insets = useSafeAreaInsets();

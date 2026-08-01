@@ -18,9 +18,9 @@ import { useRouter, useLocalSearchParams } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 import ZLogo from '@/components/z-logo';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { API_URL } from '@/lib/api';
 import * as SecureStore from 'expo-secure-store';
 import { supabase } from '@/lib/supabase';
+import { API_URL } from '@/lib/api';
 
 
 declare global {

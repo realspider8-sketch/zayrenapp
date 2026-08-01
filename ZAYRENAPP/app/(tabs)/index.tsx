@@ -22,6 +22,7 @@ import { BlurView } from 'expo-blur';
 import { supabase } from '@/lib/supabase';
 import { CommentsModal } from '@/components/CommentsModal';
 import * as SecureStore from 'expo-secure-store';
+import { API_URL } from '@/lib/api';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
@@ -299,7 +300,6 @@ function TrendingCreatorCard({ creator }: { creator: any }) {
 
 // ─── Main Screen ───────────────────────────────────────────────────────────
 
-import { API_URL } from '@/lib/api';
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();

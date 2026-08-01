@@ -4,8 +4,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Feather, MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter, useLocalSearchParams } from 'expo-router';
-
 import { API_URL } from '@/lib/api';
+
 
 const GRAD_MAP: [string, string][] = [
   ['#7C3AED', '#A78BFA'],

@@ -5,9 +5,9 @@ import { Feather, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { supabase } from '../../lib/supabase';
+import { API_URL } from '@/lib/api';
 
 const { width: W } = Dimensions.get('window');
-import { API_URL } from '@/lib/api';
 
 export default function CartScreen() {
   const insets = useSafeAreaInsets();

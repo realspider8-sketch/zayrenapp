@@ -14,6 +14,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import * as Location from 'expo-location';
 import { supabase } from '../../lib/supabase';
+import { API_URL } from '@/lib/api';
 
 const { width: W } = Dimensions.get('window');
 
@@ -21,7 +22,6 @@ const { width: W } = Dimensions.get('window');
 
 // ─── Helpers ──────────────────────────────────────────────────────────────
 
-import { API_URL } from '@/lib/api';
 
 // Map DB statuses -> UI
 const STATUS_TO_STEP: Record<string, number> = {

@@ -16,8 +16,8 @@ import { Feather, Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { supabase } from '@/lib/supabase';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
 import { API_URL } from '@/lib/api';
+
 
 interface Comment {
   id: string;
