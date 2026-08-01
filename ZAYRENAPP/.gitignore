@@ -37,9 +37,6 @@ yarn-error.*
 .env
 .env.*
 !.env.example
-*.env
-*.env.*
-!.env.example
 
 # local env files
 .env*.local
