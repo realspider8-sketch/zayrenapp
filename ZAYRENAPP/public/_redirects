@@ -1,0 +1,1 @@
+# No redirects. This file intentionally overrides the cached Cloudflare _redirects file to fix an infinite loop error.

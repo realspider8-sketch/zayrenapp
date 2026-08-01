@@ -8,8 +8,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "build": "expo export -p web --output-dir dist-web",
-    "build:cf": "expo export -p web --output-dir dist-web && mv dist-web/+not-found.html dist-web/404.html && rm -rf dist-web/story",
+    "build": "expo export -p web",
+    "build:cf": "expo export -p web && mv dist/+not-found.html dist/404.html && rm -rf dist/story",
     "lint": "expo lint",
     "seed:test-data": "cd ../backend && python seed_test_data.py"
   },
