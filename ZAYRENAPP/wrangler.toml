@@ -1,12 +1,5 @@
 name = "zayrenapp"
 compatibility_date = "2026-07-31"
-workers_dev = true
-pages_build_output_dir = "dist-web"
 
-[[routes]]
-pattern = "zayrenapp.com"
-custom_domain = true
-
-[[routes]]
-pattern = "www.zayrenapp.com"
-custom_domain = true
+[assets]
+directory = "./dist"

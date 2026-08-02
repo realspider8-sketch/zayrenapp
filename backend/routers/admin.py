@@ -582,6 +582,95 @@ async def get_marketing_for_admin(
         ]
     }
 
+@router.get("/reviews")
+async def get_reviews_for_admin(
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    """Get product reviews (mocked for now)."""
+    return {
+        "summary": {
+            "average_rating": 4.8,
+            "total_reviews": 124,
+            "distribution": {
+                "5": 98,
+                "4": 20,
+                "3": 4,
+                "2": 2,
+                "1": 0
+            }
+        },
+        "reviews": [
+            {
+                "id": "REV-001",
+                "customer_name": "Amina Bello",
+                "product_name": "Classic White T-Shirt",
+                "rating": 5,
+                "comment": "Amazing quality! The material feels very premium and it fits perfectly. Will definitely order again.",
+                "date": "2023-10-25"
+            },
+            {
+                "id": "REV-002",
+                "customer_name": "Chukwudi Okafor",
+                "product_name": "Wireless Earbuds",
+                "rating": 4,
+                "comment": "Good sound quality and battery life, but the case feels a bit light. Delivery was super fast though.",
+                "date": "2023-10-22"
+            },
+            {
+                "id": "REV-003",
+                "customer_name": "Sarah Johnson",
+                "product_name": "Leather Crossbody Bag",
+                "rating": 5,
+                "comment": "Absolutely beautiful bag. Smells like real leather and has enough compartments for my daily items.",
+                "date": "2023-10-18"
+            },
+            {
+                "id": "REV-004",
+                "customer_name": "Michael Adeyemi",
+                "product_name": "Classic White T-Shirt",
+                "rating": 3,
+                "comment": "It's okay. A bit thinner than I expected, but good for the price.",
+                "date": "2023-10-15"
+            }
+        ]
+    }
+
+@router.get("/staff")
+async def get_staff_for_admin(
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    """Get staff members (mocked for now)."""
+    return {
+        "staff": [
+            {
+                "id": str(current_user.id),
+                "name": current_user.name,
+                "email": current_user.email or "admin@shop.com",
+                "role": "Owner / Super Admin",
+                "status": "Active",
+                "last_active": "Just now"
+            },
+            {
+                "id": "STF-002",
+                "name": "Adekunle Ibrahim",
+                "email": "ade@shop.com",
+                "role": "Store Manager",
+                "status": "Active",
+                "last_active": "2 hours ago"
+            },
+            {
+                "id": "STF-003",
+                "name": "Ngozi Eze",
+                "email": "ngozi@shop.com",
+                "role": "Support Agent",
+                "status": "Inactive",
+                "last_active": "3 days ago"
+            }
+        ]
+    }
+
 @router.get("/users", response_model=List[UserProfileResponse])
 async def list_users(
     skip: int = 0, limit: int = 50,
