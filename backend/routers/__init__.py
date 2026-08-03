@@ -51,20 +51,74 @@ async def login(login_data: UserLogin, db: AsyncSession = Depends(get_db)):
         "user": user
     }
 
-@router.post("/register", response_model=UserProfileResponse)
-async def register_profile(user_data: UserCreate, db: AsyncSession = Depends(get_db)):
+class RegisterRequest(BaseModel):
+    email: str
+    password: str
+    name: Optional[str] = None
+    first_name: Optional[str] = None
+    last_name: Optional[str] = None
+    phone_number: Optional[str] = None
+    dob: Optional[str] = None
+    gender: Optional[str] = None
+
+@router.post("/register")
+async def register_profile(reg_data: RegisterRequest, db: AsyncSession = Depends(get_db)):
     """
-    Called by the frontend after a successful Supabase Auth sign up.
-    Creates the user profile in the database.
+    Handles registration for both Web and Mobile apps.
+    Creates the Supabase Auth user, then creates the profile in the database.
     """
-    existing_user = await UserService.get_user_by_id(db, user_data.id)
-    if existing_user:
+    import logging
+    from sqlalchemy import select
+    import uuid
+    
+    email = reg_data.email.lower()
+    
+    # Check if user already exists
+    stmt = select(User).where(User.email == email)
+    result = await db.execute(stmt)
+    if result.scalar_one_or_none():
         raise HTTPException(status_code=400, detail="User already exists")
 
+    if supabase_client:
+        try:
+            auth_response = supabase_client.auth.sign_up({
+                "email": email,
+                "password": reg_data.password
+            })
+            if auth_response.user is None:
+                raise Exception("Registration failed, please try again")
+            user_id = auth_response.user.id
+            access_token = auth_response.session.access_token if auth_response.session else "mock_token"
+        except Exception as e:
+            logging.error(f"Supabase auth failed: {e}")
+            raise HTTPException(status_code=400, detail="Failed to create user account. Email might be registered.")
+    else:
+        user_id = uuid.uuid4()
+        access_token = f"mock_token_{email}"
+
+    name = reg_data.name
+    if not name:
+        name = f"{reg_data.first_name or ''} {reg_data.last_name or ''}".strip()
+    if not name:
+        name = "Unknown User"
+        
+    base_username = name.lower().replace(" ", "") or email.split('@')[0]
+    username = f"{base_username}_{str(user_id)[:4]}"
+
+    user_create = UserCreate(
+        id=user_id,
+        email=email,
+        name=name,
+        username=username
+    )
+    
     import sqlalchemy
     try:
-        user = await UserService.create_user(db, user_data)
-        return user
+        user = await UserService.create_user(db, user_create)
+        return {
+            "access_token": access_token,
+            "user": user
+        }
     except sqlalchemy.exc.IntegrityError:
         await db.rollback()
         raise HTTPException(status_code=400, detail="Username or email already taken")
