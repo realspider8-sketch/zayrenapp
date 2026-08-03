@@ -33,7 +33,13 @@ app = FastAPI(title="ZAYREN API", description="Secure Backend for Zayren App", v
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # For React Native dev, allow all
+    allow_origins=[
+        "https://zayrenapp.com",
+        "https://www.zayrenapp.com",
+        "http://localhost:8081",
+        "http://localhost:3000",
+        "http://localhost:19006"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
