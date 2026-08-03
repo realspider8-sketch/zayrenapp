@@ -51,6 +51,8 @@ async def login(login_data: UserLogin, db: AsyncSession = Depends(get_db)):
         "user": user
     }
 
+from pydantic import BaseModel
+from typing import Optional
 class RegisterRequest(BaseModel):
     email: str
     password: str

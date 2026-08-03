@@ -38,8 +38,10 @@ app.add_middleware(
         "https://www.zayrenapp.com",
         "http://localhost:8081",
         "http://localhost:3000",
-        "http://localhost:19006"
+        "http://localhost:19006",
+        "http://localhost:5173"
     ],
+    allow_origin_regex="https://.*",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -157,3 +159,4 @@ app.include_router(admin_router, prefix="/api/admin", tags=["Admin"])
 @app.get("/")
 def health_check():
     return {"status": "ok", "service": "ZAYREN Backend API"}
+# Trigger Railway deployment
